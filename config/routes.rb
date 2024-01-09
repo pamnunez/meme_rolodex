@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   # Defines the root path route ("/")
-  root "memes#index"
+  #root "memes#index"
 
   resources :memes
   resources :tags
