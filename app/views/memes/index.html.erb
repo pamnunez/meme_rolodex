@@ -2,13 +2,11 @@
 
 <a href="/memes/new">New</a>
 <ul>
-<% if !@memes.nil? %>
-  <% @memes.each do |article| %>
+  <% @memes.each do |meme| %>
     <li>
       <a href="/memes/<%= meme.id %>">
         <%= meme.title %>
       </a>
     </li>
   <% end %>
-<% end %>
 </ul>
