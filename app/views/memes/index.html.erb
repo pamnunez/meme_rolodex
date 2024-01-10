@@ -1,2 +1,14 @@
-<h1>Memes#index</h1>
-<p>Find me in app/views/memes/index.html.erb</p>
+<h1>Memes</h1>
+
+<a href="/memes/new">New</a>
+<ul>
+<% if !@memes.nil? %>
+  <% @memes.each do |article| %>
+    <li>
+      <a href="/memes/<%= meme.id %>">
+        <%= meme.title %>
+      </a>
+    </li>
+  <% end %>
+<% end %>
+</ul>

@@ -1,0 +1,8 @@
+<h1>Memes</h1>
+<%= form_with url: "/new", method: :get do |form| %>
+    <%= form.label :title, "Title:" %>
+    <%= form.text_field :query %><br><br>
+    <%= form.label :url, "URL:" %>
+    <%= form.text_field :url %><br><br>
+    <%= form.submit "Submit" %>
+<% end %>
