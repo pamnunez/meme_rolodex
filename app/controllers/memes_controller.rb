@@ -9,7 +9,6 @@ class MemesController < ApplicationController
 
   def create
     @meme = Meme.new(meme_params)
-
     if @meme.save
       redirect_to @meme
     else
