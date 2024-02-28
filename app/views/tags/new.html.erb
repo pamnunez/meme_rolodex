@@ -1,14 +1,12 @@
 <h1>Tags</h1>
 <%= form_with model: @tag do |form| %>
   <div>
-    <%= form.label :title, "Title: " %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :url, "URL:" %>
-    <%= form.text_field :url %>
+    <%= form.label :title, "Name: " %>
+    <%= form.text_field :name %>
   </div>
   <div>
     <%= form.submit "Submit" %>
   </div>
 <% end %>
+<br>
+<a href="/tags/">View Tags</a>
