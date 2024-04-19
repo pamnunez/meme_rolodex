@@ -1,0 +1,22 @@
+
+<p>@current_user= <%= current_user.id %></p>
+
+<%= form_with model: meme do |form| %>
+  <div>
+    <%= form.label :title, "Title: " %>
+    <%= form.text_field :title %>
+    <% meme.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.label :url, "URL: " %>
+    <%= form.text_field :url %>
+    <% meme.errors.full_messages_for(:url).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
