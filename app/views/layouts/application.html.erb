@@ -1,18 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="night">
   <head>
     <title>MemeRolodex</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-
     <%= favicon_link_tag asset_path('thonk-discord-thinking-clipart.png') %>
   </head>
 
-  <body class="container bg-slate-700 text-slate-100">
+  <%# <body class="container bg-slate-700 text-slate-100"> %>
+  <body>
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a class="btn btn-ghost text-xl">Meme Rolodex</a>
+      </div>
+      <div class="flex-none gap-2">
+        <div class="form-control">
+          <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+        </div>
+        <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+            <div class="w-10 rounded-full">
+              <img alt="Meme Rolodex Logo" src=<%= asset_path('thonk-discord-thinking-clipart.png') %> />
+            </div>
+          </div>
+          <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+            <li>
+              <% if user_signed_in? %> 
+                <li><a><%= current_user.email %></a></li>
+                <li><a><%= button_to "Sign out", destroy_user_session_path, method: :delete %></a></li>
+              <% else %>
+                <li><a><%= button_to "Sign in", new_user_session_path %></a></li>
+              <% end %>
+            <li><a>Settings</a></li>
+            <li><a>Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
