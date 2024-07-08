@@ -1,7 +1,7 @@
 class MemesController < ApplicationController
   def index
     @memes = Meme.all
-    @current_user = current_user.id
+    @current_user = current_user
   end
 
   def show
