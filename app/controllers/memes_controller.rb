@@ -7,6 +7,7 @@ class MemesController < ApplicationController
   def show
     @meme = Meme.find(params[:id])
   end
+
   def new
     @meme = Meme.new
   end
@@ -14,7 +15,7 @@ class MemesController < ApplicationController
   def create
     @meme = Meme.new(meme_params.merge(user_id: current_user.id))
     if @meme.save
-      redirect_to @meme
+      redirect_to memes_path
     else
       render :new, status: :unprocessable_entity
     end
