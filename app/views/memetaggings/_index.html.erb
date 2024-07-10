@@ -1,0 +1,4 @@
+<h2> Tags </h2>
+<% @meme.memetaggings.each do |memetagging| %>
+	<li><%= memetagging.tag.name %></li>
+<% end %>

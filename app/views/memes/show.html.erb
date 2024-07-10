@@ -1,3 +1,13 @@
 <h1><%= @meme.title %></h1>
 
 <%= image_tag @meme.url %>
+
+<div id="listed_tags">
+	<%= render "memetaggings/index" %>
+</div>
+
+<%= form_for :memetagging, url: meme_memetaggings_path(@meme, format: :turbo_stream) do |f| %>
+	<%= f.hidden_field :meme_id, value: @meme.id %>
+	<%= f.text_field :tag_name %><br/>
+	<%= f.submit "Add Tagging", class: 'btn btn-success'%>
+<% end %>
